@@ -246,6 +246,9 @@ padding-bottom: 4px;
 .deleting-item{
   border-bottom: 1px solid #ff2222
 }
+.editing-item{
+  border-bottom: 1px solid var(--hover-color);
+  }
 /*
 ====================
 NOTIFICATION

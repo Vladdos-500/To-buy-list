@@ -93,8 +93,11 @@ function editDelete(e){
       editElement = id
       editValue = triggeredTextElement
       input.select()
+      editingItemBorder(triggeredTextElement.parentElement)
+
 
     }else if (targetBtn.classList.contains('delete-btn')) {
+      setToDefault();
       deletingItem = true;
       let deleteId = e.target.parentElement.parentElement.parentElement.dataset.id
       let deletingElement = e.target.parentElement.parentElement.parentElement
@@ -148,6 +151,11 @@ function confirmDeleting(){
 function deletingItemBorder(item){
   if(!item.classList.contains('deleting-item')){
     item.classList.add('deleting-item')
+  }
+}
+function editingItemBorder(item){
+  if(!item.classList.contains('editing-item')){
+    item.classList.add('editing-item')
   }
 }
 
@@ -230,6 +238,9 @@ const array = Array.from(itemsContainerChildren)
 array.forEach((item) => {
   if(item.classList.contains('deleting-item')){
     item.classList.remove('deleting-item')
+  }
+  if(item.classList.contains('editing-item')){
+    item.classList.remove('editing-item')
   }
 });
 }
