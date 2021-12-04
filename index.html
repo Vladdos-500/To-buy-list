@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Buy List</title>
+    <link rel="icon" href="check-circle-regular.svg" type="image/icon type">
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/3a3dfb7841.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">
+        <div class="back-link-container">
+          <a class="back-link" href="#"> <p class="link-par">Back somewhere</p> </a>
+        </div>
+        <div class="burger-btn-div">
+          <svg class="ham hamRotate ham4" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+            <path
+        class="line top"
+        d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
+        <path
+        class="line middle"
+        d="m 70,50 h -40" />
+        <path
+        class="line bottom"
+        d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+          </svg>
+        </div>
+      </div>
+    </header>
+    <section class="main-section">
+
+
+      <div class="main-container">
+        <div id="notification-container">
+            <p class="notification ">
+              <!-- animateOpen -->
+            <span class="notification-icon"><i class="fas fa-exclamation-circle "></i></span>
+            </p>
+        </div>
+
+        <div class="bg-effect">
+          <div class="input-container">
+            <form class="form" autocomplete="off">
+              <input placeholder="Enter your item" type="text" name="input" class="input">
+              <button type="submit" name="button"class="submit-btn">Add item</button>
+            </form>
+
+          </div>
+          <div class="items">
+
+          </div>
+          <div class="clear-all">
+            <button type="button" name="button-clear" class="clear-all-btn">Clear List</button>
+          </div>
+
+        </div>
+      </div>
+
+      <aside class="sidebar">
+
+
+        <div class="sidebar-main-container">
+
+
+        <div class="sidebar-container">
+          <h1>To Buy List</h1>
+        </div>
+        <div class="sidebar-container">
+          <h3 class="sidebar-title">Application description</h4>
+          <p class="sidebar-p">Here you got a to do list. You can dynamically add, edit and remove items by pressing the corresponding buttons. Click the item in order to mark it as complete. All items are automatically added, removed and edited in the LocalStorage so you can access your to do list after refresh the web padge. Try it yourself</p>
+        </div>
+        <hr class="lines">
+        <div class="sidebar-container">
+          <h3 class="sidebar-title">Technologies used</h4>
+          <ul class="sidebar-list">
+            <li>HTML</li>
+            <li>CSS/SCSS</li>
+            <li>Vanilla JavaScript</li>
+            <li>Local Storage API</li>
+          </ul>
+        </div>
+        <hr class="lines">
+        <div class="sidebar-container">
+          <h3 class="sidebar-title">Contact</h4>
+          <p class="sidebar-p">Below there are some links you can contact me</p>
+        </div>
+        <div class="sidebar-icons-container">
+          <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/vladyslav-dorokhov-835650189/"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:vladdo2050@gmail.com"><i class="far fa-envelope"></i></a>
+        </div>
+        <div class="sidebar-container">
+          <p class="vdorokhov-p">Designed by V.Dorokhov</p>
+        </div>
+
+      </div>
+      </aside>
+
+    </section>
+    <footer>
+      <p id='footer-par'></p>
+    </footer>
+    <!-- javascript -->
+    <script src="app.js"></script>
+  </body>
+</html>
