@@ -52,12 +52,10 @@ let ifEdit = false
 let objects;
 // let currentElement
 
+window.addEventListener('keyup', keyPress)
 itemsContainer.addEventListener('click', completeItem)
-
 submitBtn.addEventListener('click', submit)
-
 formContainer.addEventListener('click', editDelete)
-
 clearAllBtn.addEventListener('click', function(){
     const confirm = window.confirm('Are you sure, you want to delete all the item?')
     if(confirm){
@@ -72,11 +70,17 @@ clearAllBtn.addEventListener('click', function(){
 // ===========================================
 // LOCAL STORAGE
 // ===========================================
-  window.addEventListener('DOMContentLoaded', getLocalStorageItems)
+  window.addEventListener('DOMContentLoaded', getLocalStorageItems);
+
 
 // ===========================================
 // FUNCTIONS
 // ===========================================
+function keyPress(e){
+  if(e.key === "Escape"){
+    setToDefault()
+  }
+}
 function editDelete(e){
   let targetBtn = e.target.parentElement
     if (targetBtn.classList.contains('edit-btn')) {
