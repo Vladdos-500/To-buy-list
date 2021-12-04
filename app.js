@@ -50,7 +50,7 @@ let editElement;
 let editValue =''
 let ifEdit = false
 let objects;
-// let currentElement
+
 
 window.addEventListener('keyup', keyPress)
 itemsContainer.addEventListener('click', completeItem)
@@ -71,8 +71,6 @@ clearAllBtn.addEventListener('click', function(){
 // LOCAL STORAGE
 // ===========================================
   window.addEventListener('DOMContentLoaded', getLocalStorageItems);
-
-
 // ===========================================
 // FUNCTIONS
 // ===========================================
@@ -107,7 +105,6 @@ function editDelete(e){
 }
 
 function submit(event){
-  {
     event.preventDefault();
     if (!ifEdit && input.value.length > 0 && !deletingItem) {
       addItem()
@@ -119,16 +116,13 @@ function submit(event){
     else{
       notification('Empty input. Please enter the value')
     }
-  }
 }
 
 function completeItem(event){
   item = event.target
   if(item.classList.contains('item')){
     item.classList.toggle('complete')
-
     const index = objects.findIndex(obj => obj.id == item.dataset.id)
-
     if(objects[index].class != 'complete'){
         objects[index].class = 'complete'
         localStorage.setItem('list', JSON.stringify(objects))
@@ -136,8 +130,6 @@ function completeItem(event){
       delete objects[index].class
       localStorage.setItem('list', JSON.stringify(objects))
     }
-
-
   }
 }
 
@@ -148,7 +140,6 @@ function confirmDeleting(){
     removeItemFromLocalStorage(`${editElement.dataset.id}`)
     console.log(editElement.dataset.id);
     deleteItem(editElement)
-
   }else{
     setToDefault()
   }
@@ -158,7 +149,6 @@ function deletingItemBorder(item){
   if(!item.classList.contains('deleting-item')){
     item.classList.add('deleting-item')
   }
-
 }
 
 function clearItems(){
@@ -200,7 +190,6 @@ function editItem(id, EditValue){
 }
 
 function editLocalStorageItem(id){
-
   let object
   object = objects.findIndex(obj =>obj.id == id)
   objects[object].value = input.value
@@ -229,7 +218,6 @@ function addItem(){
   input.value=''
   notification('An item has been added to the list!')
   showClearBtn();
-
 }
 
 function setToDefault(){
@@ -238,7 +226,6 @@ function setToDefault(){
   ifEdit = false
   input.value = ''
   deletingItem = false;
-
 const array = Array.from(itemsContainerChildren)
 array.forEach((item) => {
   if(item.classList.contains('deleting-item')){
@@ -254,7 +241,6 @@ function notification (par){
     mainContainer.prepend(notificationDiv)
     notificationDiv.classList.add('animateOpen')
 }
-
 // ===========================================
 //      LOCAL STORAGE
 // ===========================================
@@ -262,7 +248,6 @@ function addItemToLocalStorage(id, value){
   let object = {id: id, value:value}
   objects.push(object)
   localStorage.setItem('list', JSON.stringify(objects))
-
 }
 
 function getLocalStorageItems(){
@@ -282,7 +267,6 @@ function getLocalStorageItems(){
     newElement.classList.add('item')
     newElement.dataset.id= `${item.id}`
     itemsContainer.appendChild(newElement)
-
   })
   // ==================
   // FOR COMPLETE ITEMS
@@ -297,7 +281,6 @@ function getLocalStorageItems(){
   completeItemsArray.forEach((item) => {
     itemsContainer.children[item].classList.add('complete')
   });
-
   showClearBtn()
 }
 
@@ -310,8 +293,6 @@ function removeItemFromLocalStorage(id){
   })
   localStorage.setItem('list', JSON.stringify(objects))
 }
-
-
 // ===========================================
 // FOOTER
 // ===========================================
