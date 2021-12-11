@@ -25,21 +25,24 @@ const footer = document.getElementById('footer-par')
 // =====================================
 window.addEventListener('DOMContentLoaded', notification('Welcome to my app : )'))
 window.addEventListener('DOMContentLoaded', getLocalStorageItems)
-let burgerToggle = 0;
+
 
 burgerBtnContainer.addEventListener('click', showSidebar)
 
 function showSidebar(){
   footer.classList.toggle('move-main-container')
-  if(burgerToggle === 0){
-  sidebarContainer.classList.add('show-sidebar')
-  mainContainer.classList.add('move-main-container')
-  burgerToggle++;
-}else{
-  sidebarContainer.classList.remove('show-sidebar')
-  mainContainer.classList.remove('move-main-container')
-  burgerToggle--
-  }
+  sidebarContainer.classList.toggle('show-sidebar')
+  mainContainer.classList.toggle('move-main-container')
+  // let burgerToggle = 0
+//   if(burgerToggle === 0){
+//   sidebarContainer.classList.add('show-sidebar')
+//   mainContainer.classList.add('move-main-container')
+//   burgerToggle++;
+// }else{
+//   sidebarContainer.classList.remove('show-sidebar')
+//   mainContainer.classList.remove('move-main-container')
+//   burgerToggle--
+//   }
 }
 
 // ===========================================
@@ -65,7 +68,6 @@ clearAllBtn.addEventListener('click', function(){
   }else{
     setToDefault()
   }
-
 })
 // ===========================================
 // LOCAL STORAGE
@@ -95,7 +97,6 @@ function editDelete(e){
       input.select()
       editingItemBorder(triggeredTextElement.parentElement)
 
-
     }else if (targetBtn.classList.contains('delete-btn')) {
       setToDefault();
       deletingItem = true;
@@ -122,11 +123,16 @@ function submit(event){
 }
 
 function completeItem(event){
-  item = event.target
+  let item
+  if(event.target.tagName === 'H4'){
+    item = event.target.parentElement
+  }else{
+      item = event.target
+  }
   if(item.classList.contains('item')){
     item.classList.toggle('complete')
     const index = objects.findIndex(obj => obj.id == item.dataset.id)
-    if(objects[index].class != 'complete'){
+    if(objects[index].class !== 'complete'){
         objects[index].class = 'complete'
         localStorage.setItem('list', JSON.stringify(objects))
     }else{
@@ -189,7 +195,7 @@ function editItem(id, EditValue){
   const elements = document.querySelectorAll('.item')
   array = Array.from(elements)
   array.forEach((item) => {
-    if(item.dataset.id = id){
+    if(item.dataset.id == id){
       editValue.innerHTML = input.value
     }
   });
